@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+    <div class="container">
+        <a href="/" class="navbar-brand" id="brand-name">Pitcher</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><a href="/">Home</a></li> -->
+                {% if current_user.is_authenticated %}
+                <li class="nav-item"><a href="{{url_for('main.profile',uname=current_user.username)}}" class="nav-link">Profile</a></li>
+                <li class="nav-item"><a href="{{url_for('auth.logout')}}" class="nav-link">Sign Out</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{{url_for('auth.login')}}" class="nav-link">Sign In</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+</nav>
+
