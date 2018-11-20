@@ -7,12 +7,13 @@
         <div class="navbar-collapse collapse">
             <ul class="navbar-nav mx-auto">
             <!-- class="nav navbar-nav navbar-right"> -->
-                <li class="nav-bar"><a href="/">Home</a></li>
+                <li class="nav-bar"><a href="/" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="/pitches/interview" class="nav-link">Interview</a></li>
                 <li class="nav-item"><a href="/pitches/product" class="nav-link">Product</a></li>
                 <li class="nav-item"><a href="/pitches/promotion" class="nav-link">Promotion</a></li>
                 <li class="nav-item"><a href="/pitches/random" class="nav-link">Random</a></li>
                 <li class="nav-item"><a href="/pitches/funny" class="nav-link">Funny</a></li>
+            </ul>
                 {% if current_user.is_authenticated %}
                 <li class="nav-item"><a href="{{url_for('main.profile',uname=current_user.username)}}" class="nav-link">Profile</a></li>
                 <li class="nav-item"><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
