@@ -1,11 +1,11 @@
 import os
 
 #  email configurations
-MAIL_SERVER = 'smtp.gmail.com'
-MAIL_PORT = 587
-MAIL_USE_TLS = True
-MAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-MAIL_USERNAME = os.environ.get("EMAIL_USERNAME")
+EMAIL_SERVER = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_USERNAME = os.environ.get("EMAIL_USERNAME")
 
 
 class Config:
@@ -28,6 +28,7 @@ class ProdConfig(Config):
     Args: 
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:maroon5@localhost/pitcher_test'
     pass
 
 
@@ -48,3 +49,8 @@ config_options = {
     'production':ProdConfig,
     'test': TestConfig
 }
+
+
+
+
+
