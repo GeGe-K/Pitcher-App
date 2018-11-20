@@ -1,17 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
     <div class="container">
-        <a href="/" class="navbar-brand" id="brand-name">Pitcher</a>
+        <a href="/" class="navbar-brand" id="brand-name">The Pitch</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <!-- <li><a href="/">Home</a></li> -->
+            <ul class="navbar-nav mx-auto">
+            <!-- class="nav navbar-nav navbar-right"> -->
+                <li class="nav-bar"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="/pitches/interview" class="nav-link">Interview</a></li>
+                <li class="nav-item"><a href="/pitches/product" class="nav-link">Product</a></li>
+                <li class="nav-item"><a href="/pitches/promotion" class="nav-link">Promotion</a></li>
+                <li class="nav-item"><a href="/pitches/random" class="nav-link">Random</a></li>
+                <li class="nav-item"><a href="/pitches/funny" class="nav-link">Funny</a></li>
                 {% if current_user.is_authenticated %}
                 <li class="nav-item"><a href="{{url_for('main.profile',uname=current_user.username)}}" class="nav-link">Profile</a></li>
-                <li class="nav-item"><a href="{{url_for('auth.logout')}}" class="nav-link">Sign Out</a></li>
+                <li class="nav-item"><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
                 {% else %}
-                <li class="nav-item"><a href="{{url_for('auth.login')}}" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><a href="{{url_for('auth.login')}}">Sign In</a></li>
                 {%endif%}
             </ul>
         </div>
