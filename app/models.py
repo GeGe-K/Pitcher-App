@@ -18,8 +18,8 @@ class User (UserMixin, db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
-    pitches = db.relationship("Pitch", backref = 'user', lazy = "dynamic")
-    comments = db.relationship('Comment', backref='user', lazy="dynamic")
+    pitches = db.relationship("Pitch", backref = "user", lazy = "dynamic")
+    comments = db.relationship('Comment', backref="user", lazy = "dynamic")
 
     def save_user(self):
 
@@ -58,9 +58,9 @@ class Pitch (db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     
-    comments = db.relationship('Comment', backref='user', lazy="dynamic")
-    upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
-    downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
+    comments = db.relationship('Comment', backref='pitch', lazy="dynamic")
+    # upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
+    # downvotes = db.relationship('Downvote', backref = 'pitch', lazy = 'dynamic')
     
     def save_pitch(self):
 
