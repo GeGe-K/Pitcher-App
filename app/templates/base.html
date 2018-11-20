@@ -1,23 +1,13 @@
 {% extends 'bootstrap/base.html' %}
+{% block navbar%}
+{% include 'navbar.html' %}
+{% endblock %}
 {% block styles %}
-
-{{super()}}
+{{ super() }}
 
 <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}" />
-
-{%endblock%}
-
-{% block navbar %}
-{%include 'navbar.html'%}
-
-{%endblock%}
-
-{%block styles %}
-
-<!--Importing the simple mde css and js files  -->
-{{ simplemde.css}}
-{{ simplemde.js }}
-
-{%endblock%}
+{{simplemde.css}}
+{{simplemde.js}}
+{% endblock %}
 
