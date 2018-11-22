@@ -45,7 +45,7 @@
                     <h3 class="card-title">{{pitch.title}}</h3>
                     <p class="card-text">{{pitch.content}}</p>
                     <p class="card-text">Posted by {{pitch.user.username}} at {{pitch.posted}}</p>
-                    <a href="{{url_for('main.view_comments', user = pitch.user.id, pitch_id = pitch.id)}}"><button type="submit" class="btn btn-outline-success btn-sm">Comments</button></a>
+                    <a href="{{url_for('main.view_comments', user = pitch.user.id, pitch_id = pitch.id)}}"><button type="submit" class="btn btn-outline-success btn-sm my-3">Comments</button></a>
                     <a href="{{url_for('main.comment', user = pitch.user.id, pitch_id = pitch.id)}}"><button type="submit" class="btn btn-outline-info btn-sm my-3">Add Comment</button></a>
                 </div>
             </div>
