@@ -54,7 +54,6 @@ class Pitch (db.Model):
     title = db.Column(db.String(255))
     content = db.Column(db.String(255))
     category = db.Column(db.String())
-    password_hash = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     
@@ -70,7 +69,7 @@ class Pitch (db.Model):
     def get_pitch_comments(self):
 
         pitch = Pitch.query.filter_by(id = self.id).first()
-        comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.time.desc())
+        comments = Comment.query.filter_by(pitch_id = pitch.id).order_by(Comment.posted.desc())
         return comments
 
 class Comment(db.Model):
