@@ -4,36 +4,57 @@
 <div class="container">
     <div class="row">
         <!-- displaying Username -->
-        <div class="col-md-4">
-            <h3> {{user.username | capitalize}} </h3>
+        <div class="col-md-6">
+            <div id="profile">
+                <h3> {{user.username | capitalize}} </h3>
 
-            <!--Displaying user bio-->
-            {% if user.bio %}
-            <p> {{user.bio}} </p>
-            {% else %}
-            <p> {{user.username| capitalize}} has no bio </p>
-            {% endif %}
-        </div>
-        <!--Display profile photo-->
-        <div class="col-md-4">
-            {% if user.profile_pic_path %}
-
-            <img style="border: 2px red solid" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="picture"
-                class="img-thumbnail">
-
-
-            {%else%}
-            <p> No profile picture</p>
-            {% endif %}
-
-            {% if user == current_user %}
-            <form action="{{url_for('main.update_pic',uname = user.username)}}" method="POST" enctype="multipart/form-data">
-                <input type="file" name="photo" class="form-control" required>
-                <input type="submit">
+                <!--Displaying user bio-->
+                {% if user.bio %}
+                <p> {{user.bio}} </p>
+                {% else %}
+                <p> {{user.username| capitalize}} has no bio </p>
                 {% endif %}
-            </form>
+        
+                <!--Display profile photo-->
+                {% if user.profile_pic_path %}
+
+                <img style="border: 2px red solid" src="{{url_for('static',filename=user.profile_pic_path)}}" alt="picture"
+                class="img-thumbnail" >
+                
+                {% endif %}
+
+                {% if user == current_user %}
+                <form action="{{url_for('main.update_pic',uname = user.username)}}" method="POST" enctype="multipart/form-data">
+                    <br>
+                    <input type="file" name="photo" class="form-control" required>
+                    <br>
+                    <input type="submit">
+                    {% endif %}
+                </form>
+                <br>
+                <a href="{{url_for('main.update_profile',uname = user.username)}}">Edit profile</a>
+            </div>
         </div>
-        <a href="{{url_for('main.update_profile',uname = user.username)}}">Edit profile</a>
+        <div class="col-md-6">
+            <h4 class="text-center">My Pitches</h4>
+            <hr>
+            {%if pitches%}
+            {% for pitch in pitches%}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="card-title">{{pitch.title}}</h3>
+                    <p class="card-text">{{pitch.content}}</p>
+                    <p class="card-text">Posted by {{pitch.user.username}} at {{pitch.posted}}</p>
+                    <a href="{{url_for('main.view_comments', user = pitch.user.id, pitch_id = pitch.id)}}"><button type="submit" class="btn btn-outline-success btn-sm">Comments</button></a>
+                    <a href="{{url_for('main.comment', user = pitch.user.id, pitch_id = pitch.id)}}"><button type="submit" class="btn btn-outline-info btn-sm my-3">Add Comment</button></a>
+                </div>
+            </div>
+            
+        </div>
+            {% endfor %}
+            {%else%}
+            <p>You have no pitches</p>
+            {%endif%}
     </div>
 </div>
 {% endblock %}
