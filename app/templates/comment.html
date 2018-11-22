@@ -2,9 +2,19 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
-    {% for comment in comments %}
-        <p>{{comment.comment}}</p>
-        <p>Posted by: {{comment.user.username}}</p> 
-        <p>Date: {{comment.posted}}</p>
-    {% endfor%}
+<div class="container">
+    <div class="row">
+        {% for comment in comments %}
+        <div class="col-md-4 col-sm-6 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <p class="card-title">{{comment.comment}}</p>
+                    <p class="card-text">Posted by: {{comment.user.username}}</p> 
+                    <p class="card-text">Date: {{comment.posted}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
 {% endblock %}
