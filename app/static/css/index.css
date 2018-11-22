@@ -1,4 +1,4 @@
-/* style navbar */
+/* styled the navbar */
 #brand-name{
      font-family: 'Caveat', cursive;
      font-size: 30px;
@@ -12,12 +12,33 @@
     font-family: 'Caveat', cursive;
     font-size: 25px;
 }
+/* styled profile */
+#profile{
+    position: static;
+    border: 1px solid black;
+    width: 80%;
+    padding: 30px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    background: white;
+    box-shadow: -1px 1px 16px -1px rgba(0,0,0,0.75)
+    
+}
 
+/* styled index */
+#category{
+    padding-left: 15%;
+}
+
+
+/* styled the card */
 .card {
   -webkit-box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
   box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
   transition: all 0.5s;
   -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+  margin-bottom: 10%;
+  margin-top:10%;
 }
 
 .card:hover {
