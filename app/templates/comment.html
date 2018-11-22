@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+    {% for comment in comments %}
+        <p>{{comment.comment}} by {{comment.user.username}}</p>
+    {% endfor%}
+{% endblock %}
