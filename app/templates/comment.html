@@ -3,6 +3,8 @@
 
 {% block content %}
     {% for comment in comments %}
-        <p>{{comment.comment}} by {{comment.user.username}}</p>
+        <p>{{comment.comment}}</p>
+        <p>Posted by: {{comment.user.username}}</p> 
+        <p>Date: {{comment.posted}}</p>
     {% endfor%}
 {% endblock %}
