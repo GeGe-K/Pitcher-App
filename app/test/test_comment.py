@@ -3,6 +3,10 @@ from app import db
 import unittest
 
 class CommentTest(unittest.TestCase):
+        '''
+    Test class to test the behavior of the User class
+    '''
+    
     def setUp(self):
         self.user_James = User(
             username='Gloria', password='green', email='gege@ms.com')

@@ -2,7 +2,7 @@ from app.models import Comment,User,Pitch
 from app import db
 import unittest
 
-class CommentTest(unittest.TestCase):
+class UserTest(unittest.TestCase):
     '''
     Test class to test the behavior of the User class
     '''
