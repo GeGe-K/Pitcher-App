@@ -6,7 +6,7 @@
 ## Description 
 Pitcher is an application that displays pitches from various categories e.g. Promotion, Pick-Up lines. The user is able to view these pitches but once they are loged in they can leave a comment, upvote and downvote and view their pitches on their profile page .
 
-You can view the live link on: 
+You can view the live link on: https://pitch-time.herokuapp.com/
 
 ## User Stories
 These are the behaviours that the application implenents for use by a user.
